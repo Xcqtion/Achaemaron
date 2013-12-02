@@ -10,7 +10,12 @@ function Cell(x, y, cmt) {
 		cmt: cmt,
 
 		getAdjunct: function(num) {
-			return adjuncts[num];
+			if(num != undefined) {
+				return adjuncts[num];
+			} else {
+				return adjuncts;
+			}
+			
 		},
 
 		setAdjunct: function(num, cell) {
@@ -19,6 +24,6 @@ function Cell(x, y, cmt) {
 				adjuncts[num] = cell;
 				adjuncts[num].setAdjunct(8-num, this);
 			}
-		}
+		},	
 	};
 }

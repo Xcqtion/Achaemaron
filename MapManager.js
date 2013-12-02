@@ -38,6 +38,18 @@ function MapManager(cell) {
 				tempCells.pop();
 			}
 			return checkedCells;
+		},
+
+		//Finds all the adjacent cells to a cell and sets those cells
+		//adjunct to the cell that calls this function. Works in theory.
+		findAdjuncts: function(cell) {
+			var adjuncts = this.getCellMap();
+			for(var a in adjuncts) {
+				var dir = interpretDir((a.X - cell.X), (a.Y - cell.Y));
+				if(dir != -1) {
+					cell.setAdjunct(dir, a);
+				}
+			}
 		}
 	};
 }
